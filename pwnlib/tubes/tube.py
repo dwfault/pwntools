@@ -1351,3 +1351,43 @@ class tube(Timeout, Logger):
 
     def flat(self, *a, **kw):       return self.send(packing.flat(*a,**kw))
     def fit(self, *a, **kw):        return self.send(packing.fit(*a, **kw))
+
+
+
+    '''
+    MODIFIED by dwfault.
+    '''
+
+    def ManualAttach(self):
+        raw_input('\33[1;31;40m[+] Debug: Attach GDB.\33[0m')
+
+    def Log(self,String):
+        print '\33[1;31;40m'+'[+] '+ String+'\33[0m'
+
+    def LogRecvUntil(self,String):
+        print self.recvuntil(String)
+
+    def LogRecvNoBlocking(self):
+        print self.recv()
+
+    def LogRecv(self,Len):
+        Data = self.recv(Len)
+        print Data
+        return Data
+
+    def LogSend(self,Data):
+        print Data
+        self.send(Data)
+
+    def LogSendAndRecv(self,Data):
+        print Data
+        self.send(Data)
+        print self.recv()
+
+    '''
+    MODIFIED by dwfault
+    '''
+
+
+
+
