@@ -1382,6 +1382,21 @@ class tube(Timeout, Logger):
         print '\33[1;36;40m'+Data+'\33[0m'
         self.send(Data)
         print self.recv()
+        
+    def LogHex(self,Data):
+        i = 0
+        display = ''
+        for byte in Data:
+            display = display + str(hex(packing.unpack(byte,8)))+ ' '
+            if((i+1)%4==0):
+                display = display + '| '
+            if((i+1)%16==0):
+                self.Log(display)
+                display =''
+            i = i+1
+        if((i%16)!=0):
+            self.Log(display)    
+    
     '''
     MODIFIED by dwfault
     '''
