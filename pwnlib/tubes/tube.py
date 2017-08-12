@@ -1357,7 +1357,6 @@ class tube(Timeout, Logger):
     '''
     MODIFIED by dwfault.
     '''
-
     def ManualAttach(self):
         raw_input('\33[1;31;40m[+] Debug: Attach GDB.\33[0m')
 
@@ -1376,14 +1375,13 @@ class tube(Timeout, Logger):
         return Data
 
     def LogSend(self,Data):
-        print Data
+        print '\33[1;36;40m'+Data+'\33[0m'
         self.send(Data)
 
     def LogSendAndRecv(self,Data):
-        print Data
+        print '\33[1;36;40m'+Data+'\33[0m'
         self.send(Data)
         print self.recv()
-
     '''
     MODIFIED by dwfault
     '''
