@@ -22,43 +22,30 @@ Fairly easy and simple. So this part will be Introduced as  source code:
 
 ```
     def ManualAttach(self):
-
         raw_input('\33[1;31;40m[+] Debug: Attach GDB.\33[0m')
 
     def Log(self,String):
-
         print '\33[1;31;40m'+'[+] '+ String+'\33[0m'
 
     def LogRecvUntil(self,String):
-
         print self.recvuntil(String)
 
     def LogRecvNoBlocking(self):
-
         print self.recv()
 
     def LogRecv(self,Len):
-
         Data = self.recv(Len)
-
         print Data
-
         return Data
 
     def LogSend(self,Data):
-
-        print Data
-
+        print '\33[1;36;40m'+Data+'\33[0m'
         self.send(Data)
 
     def LogSendAndRecv(self,Data):
-
-        print Data
-
+        print '\33[1;36;40m'+Data+'\33[0m'
         self.send(Data)
-
         print self.recv()
-
 ```
 
 
