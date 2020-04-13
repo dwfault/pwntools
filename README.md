@@ -28,7 +28,9 @@ Fairly easy and simple. So this part will be Introduced as  source code:
         print '\33[1;31;40m'+'[+] '+ String+'\33[0m'
 
     def LogRecvUntil(self,String):
-        print self.recvuntil(String)
+    	Data = self.recvuntil(String)
+	print Data
+	return Data
 
     def LogRecvNoBlocking(self):
         print self.recv()
