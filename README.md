@@ -25,7 +25,7 @@ Fairly easy and simple. So this part will be Introduced as  source code:
         raw_input('\33[1;31;40m[+] Debug: Attach GDB.'),
 
     def Log(self, String):
-        print '\33[1;31;40m[+] '+ String
+        print '\33[1;31;40m[+] '+ String,
 
     def LogRecvUntil(self, String):
 	Data = self.recvuntil(String)
