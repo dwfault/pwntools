@@ -22,45 +22,45 @@ Fairly easy and simple. So this part will be Introduced as  source code:
 
 ```
     def ManualAttach(self):
-        raw_input('\33[1;31;40m[+] Debug: Attach GDB.\33[0m')
+        raw_input('\33[1;31;40m[+] Debug: Attach GDB.'),
 
-    def Log(self,String):
-        print '\33[1;31;40m'+'[+] '+ String+'\33[0m'
+    def Log(self, String):
+        print '\33[1;31;40m[+] '+ String
 
-    def LogRecvUntil(self,String):
-    	Data = self.recvuntil(String)
-	print Data
+    def LogRecvUntil(self, String):
+	Data = self.recvuntil(String)
+	print '\33[0m\b' + Data,
 	return Data
 
     def LogRecvNoBlocking(self):
-        print self.recv()
+        print '\33[0m\b'+ self.recv(),
 
-    def LogRecv(self,Len):
+    def LogRecv(self, Len):
         Data = self.recv(Len)
-        print Data
+        print '\33[0m\b' + Data,
         return Data
 
     def LogSend(self,Data):
-        print '\33[1;36;40m'+Data+'\33[0m'
+        print '\33[1;36;40m\b' + Data,
         self.send(Data)
 
     def LogSendAndRecv(self,Data):
-        print '\33[1;36;40m'+Data+'\33[0m'
+        print '\33[1;36;40m\b' + Data,
         self.send(Data)
-        print self.recv()
-	
+        print '\33[0m\b' + self.recv(),
+
     def LogHex(self,Data):
         i = 0
         display = ''
         for byte in Data:
-            display = display + str(hex(packing.unpack(byte,8)))+ ' '
-            if((i+1)%4==0):
+            display = display + str(hex(packing.unpack(byte, 8)))+ ' '
+            if((i + 1) % 4 == 0):
                 display = display + '| '
-            if((i+1)%16==0):
+            if((i + 1) % 16 == 0):
                 self.Log(display)
-                display =''
-            i = i+1
-        if((i%16)!=0):
+                display = ''
+            i = i + 1
+        if((i % 16) != 0):
             self.Log(display)
 ```
 
