@@ -22,11 +22,11 @@ Fairly easy and simple. So this part will be Introduced as  source code:
 
 ```
     def ManualAttach(self):
-        print '\33[1;31;40m[+] Debug: Attach GDB.',
+        print '\33[1;31;40m\b[+] Debug: Attach GDB.',
 	sys.stdin.read(1)
 
     def Log(self, String):
-        print '\33[1;31;40m[+] '+ String,
+        print '\33[1;31;40m\b[+] '+ String,
 
     def LogRecvUntil(self, String):
 	Data = self.recvuntil(String)
